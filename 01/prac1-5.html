@@ -16,8 +16,14 @@
 
             }//prac1-5〜 1から10までの数を順に10個挿入する
             show(numbers);
-            //prac1-5 全ての要素に10を足す
-            //prac1-6 全ての要素に10をかける
+            for (var k = 0; k < 10; k++) {
+                var x = numbers[k]
+                numbers[k] = x + 10;
+            }//prac1-5 全ての要素に10を足す
+            // for (var l = 0; l < 10; l++) {
+            //     var x = numbers[l]
+            //     numbers[l] = x * 10;
+            // }//prac1-6 全ての要素に10をかける
             show(numbers);
         }
     </script>
