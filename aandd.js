@@ -25,7 +25,7 @@ function createSequentialNumbers(array, n) {
 
 function createRandomNumbers(array, n) {
     for (var i = 1; i <= n; i++) {
-        var x = Math.round(Math.random(10) * 10);
+        var x = Math.round(Math.random() * 9 + 1);
         array.push(x);
     }
 }
