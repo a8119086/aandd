@@ -16,3 +16,10 @@ function createSequentialNumbers(array, n) {
         array.push(i);
     }
 }
+
+function createRandomNumbers(array, n) {
+    for (var i = 1; i <= n; i++) {
+        var x = Math.round(Math.random(10) * 10);
+        array.push(x);
+    }
+}
