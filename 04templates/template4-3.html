@@ -13,6 +13,13 @@
             var numbers = [];
             createOrderedRandomNumbers(numbers, 20);
             show(numbers);
+            var x = 10;
+            for (var k = 0; k <= 20; k++) {
+                if (x == numbers[k]) {
+                    show(k + '番目にあります');
+                    break;
+                }
+            }
         }
 
         //この関数を，aaandd.jsに加えてください．
