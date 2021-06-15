@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script type="text/javascript" src="nouns.js"></script>
+    <script type="text/javascript" src="verbs.js"></script>
+
+    <script>
+
+        var nouns;
+        var verbs;
+
+
+
+        $(document).ready(function () {
+            nouns = nounstext.split('\n');
+            verbs = verbstext.split('\n');
+        });
+
+        function runButtonPressed() {
+            for (var i = 0; i < 1000000; i++) {
+                var noun = selectone(nouns);
+                var noun2 = selectone(nouns);
+                var verb = selectone2(verbs);
+
+                var text = noun + verb;
+
+                //show(text);
+                var text2 = kaibun(text);
+                //show(text2);
+                hantei(text, text2);
+            }
+            show('終わり');
+        }
+
+        function selectone(array) {
+            var size = array.length;
+            var index = Math.floor(Math.random() * size);
+            return array[index];
+        }
+
+        function selectone2(array) {
+            var size = array.length;
+            var index = Math.floor(Math.random() * size);
+            return array[index];
+        }
+
+        function kaibun(text) {
+            var char = [];
+            var chars2 = [];
+            chars = text.split('');
+            var n = chars.length;
+            for (var i = 0; i < n; i++) {
+                chars2.push(chars.pop());
+
+            }
+            var text2 = chars2.join('');
+            return text2;
+        }
+
+        function hantei(text, text2) {
+            if (text == text2) {
+                console.log(text);
+                //show('これは回文です');
+            } else {
+                //show('これは回文ではありません');
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>回文作文さん</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+
+</body>
+
+</html>
