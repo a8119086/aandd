@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        var profile = {};
+
+        $().ready(function () {
+        });
+
+        function registerButtonPressed() {
+            var key = document.getElementById('tf3').value;
+            var value = document.getElementById('tf4').value;
+            profile[key] = value;
+            console.log(profile);
+        }
+
+        function runButtonPressed() {
+            var name = document.getElementById('tf1').value;
+            var birthday = profile[name];
+            document.getElementById('tf2').value = birthday;
+            if (birthday == undefined) {
+                document.getElementById('tf2').value = '見つかりませんでした';
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>登録</h1>
+    名前：<input id="tf3" type="text" value="">
+    <br>
+    誕生日：<input id="tf4" type="text" value="">
+    <button onclick="registerButtonPressed()">登録!</button>
+    <h1>検索</h1>
+    名前：<input id="tf1" type="text" value="">
+    <button onclick="runButtonPressed()">検索!</button>
+    <br>
+    誕生日は <input id="tf2" type="text" value="">
+
+    <p id="res"></p>
+</body>
+
+</html>
