@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        
+
+        $().ready(function () {
+            console.log(localStorage);
+        });
+
+        function registerButtonPressed() {
+            var key = document.getElementById('tf1').value;
+            var value = document.getElementById('tf3').value;
+            
+            localStorage.setItem(key, JSON.stringify(value));
+
+        }
+
+        function runButtonPressed() {
+            var you = document.getElementById('tf1').value;
+            var getjson = localStorage.getItem(you);
+            console.log(getjson);
+            var bot = JSON.parse(getjson);
+            document.getElementById('tf2').value = bot;
+            if (bot == undefined) {
+                document.getElementById('tf2').value = you + 'の答えを教えて！';
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>BOTシステム</h1>
+    あなた：<input id="tf1" type="text" value="">
+    <button onclick="runButtonPressed()">発言!</button>
+    <br>
+    <input id="tf2" type="text" value="">
+    <br>
+    <input id="tf3" type="text" value="">
+    <button onclick="registerButtonPressed()">教える!</button>
+
+
+    <p id="res"></p>
+</body>
+
+</html>
